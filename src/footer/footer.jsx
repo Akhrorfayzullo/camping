@@ -4,7 +4,7 @@ import { Lasth1, Oddiy, Lastdiv } from "./style";
 export default function Footerr() {
   return (
     <div>
-      <Lastdiv>
+      <Lastdiv style={{ backgroundColor: "lightBlue" }}>
         <Oddiy>
           <h1 style={{ marginBottom: "20px" }}>Camper</h1>
           <Lasth1>

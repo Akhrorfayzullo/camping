@@ -11,6 +11,7 @@ import im21 from "./assets/im21.png";
 import im22 from "./assets/im22.png";
 import im23 from "./assets/im23.png";
 import im24 from "./assets/im24.png";
+import motorback from "./assets/motorB.png";
 export const Navh1 = styled.h1`
   color: #006dab;
 `;
@@ -87,17 +88,36 @@ export const ImageGrid = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 export const Sdiv = styled.div`
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 export const Innerdivv = styled.div`
   flex: 1;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 export const Innerdiv2 = styled.div`
   flex: 3;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+`;
+export const MotorDiv = styled.div`
+  border: 10px solid darkgoldenrod;
+  background-image: url(${motorback});
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+`;
+export const MotorH1 = styled.h1`
+  color: #fff;
+  font-family: Montserrat;
+  font-size: ${(props) =>
+    props.$range ? "27px" : props.$title ? "80px" : "16px"};
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;

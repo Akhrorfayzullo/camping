@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Innerdiv, Navdiv, Navh1, Navp } from "../style";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -9,7 +10,9 @@ export const Navbar = () => {
       <Navdiv>
         <Navh1>Camper</Navh1>
         <Innerdiv>
-          <Navp>Motor</Navp>
+          <Navp>
+            <Link to="/motor">Motor</Link>
+          </Navp>
           <Navp>Caravan</Navp>
           <Navp>Caravan</Navp>
           <Navp>Caravan</Navp>

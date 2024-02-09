@@ -5,11 +5,12 @@ import img2 from "../assets/sunset.jpg";
 import img3 from "../assets/img (31).webp";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Navbar } from "../components/navbar";
+import { Multicar } from "./multicar";
 
 export const Carusel = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Carousel
         showArrows={true}
         showStatus={false}
@@ -35,6 +36,7 @@ export const Carusel = () => {
       </Carousel>
       <h1 style={{ textAlign: "center", margin: "50px 0" }}>Recommend</h1>
       {/* <Navbar /> */}
+      <Multicar />
     </div>
   );
 };
