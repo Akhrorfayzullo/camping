@@ -12,6 +12,10 @@ import im22 from "./assets/im22.png";
 import im23 from "./assets/im23.png";
 import im24 from "./assets/im24.png";
 import motorback from "./assets/motorB.png";
+import mot1 from "./assets/motor1.png";
+import mot2 from "./assets/motor2.png";
+import mot3 from "./assets/motor3.png";
+import mot4 from "./assets/motor4.png";
 export const Navh1 = styled.h1`
   color: #006dab;
 `;
@@ -103,7 +107,7 @@ export const Innerdiv2 = styled.div`
   /* border: 1px solid black; */
 `;
 export const MotorDiv = styled.div`
-  border: 10px solid darkgoldenrod;
+  /* border: 10px solid darkgoldenrod; */
   background-image: url(${motorback});
   height: 350px;
   display: flex;
@@ -120,4 +124,65 @@ export const MotorH1 = styled.h1`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+`;
+export const MotorMapD = styled.div`
+  width: 223px;
+  height: 307px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid red; */
+  padding: 15px 0px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+`;
+export const MotorMapH1 = styled.h1`
+  color: ${(props) => (props.$cost || props.$btn ? "#006DAB" : "#373737")};
+  font-family: Montserrat;
+  font-size: ${(props) =>
+    props.$comp ? "12px" : props.$cost ? "22px" : props.$btn ? "14px" : "16px"};
+  font-style: normal;
+  font-weight: ${(props) =>
+    props.$comp ? "400" : props.$cost || props.$btn ? "700" : "600"};
+  line-height: normal;
+`;
+export const BtnDiv = styled.div`
+  width: 100%;
+  display: flex;
+  /* border: 1px solid yellowgreen; */
+  gap: 15px;
+`;
+export const Btn = styled.button`
+  flex: 1;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid blue;
+  /* btn sh */
+  background-color: #fff;
+  /* &:hover {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  } */
+`;
+export const MotorInner = styled.div`
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  /* gap: 20px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+export const Motorg = styled.div`
+  display: grid;
+  place-items: center;
+  /* border: 1px solid firebrick; */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+`;
+export const HeaderDiv = styled.div`
+  /* border: 1px solid black; */
+  margin: 60px 0 37px 0;
+  /* border-bottom: 1px solid black; */
 `;

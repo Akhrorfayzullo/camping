@@ -1,36 +1,44 @@
 import React from "react";
 import { campcar } from "../mockdata";
 import { Link } from "react-router-dom";
+import {
+  Btn,
+  BtnDiv,
+  MotorInner,
+  MotorMapD,
+  MotorMapH1,
+  Motorg,
+} from "../style";
+import mot1 from "../assets/motor1.png";
+import mot2 from "../assets/motor2.png";
+import mot3 from "../assets/motor3.png";
+import mot4 from "../assets/motor4.png";
 export const Motormap = () => {
+  const motorImages = [mot1, mot3, mot4];
   return (
-    <div style={{ border: "1px solid red" }}>
-      {campcar.maindata.map((item, index) => (
-        <div key={item.id}>
-          <Link to={`/motor/${item.id}`}>{item.id}</Link>
-          <h2>
-            {item.id}
-            {item.car.name} ,, Car Number {index + 1}
-          </h2>
-          <p>
-            <strong>Cost:</strong> {item.car.cost}
-            <br />
-            <strong>Type:</strong> {item.car.type}
-            <br />
-            <strong>License:</strong> {item.car.license}
-            <br />
-            <strong>People:</strong> {item.car.people}
-            <br />
-            <strong>Date:</strong> {item.car.date}
-            <br />
-            <strong>Company:</strong> {item.car.company}
-            <br />
-            <strong>Location:</strong> {item.car.location}
-            <br />
-          </p>
-          {/* Add more details as needed */}
-          <hr />
-        </div>
-      ))}
+    <div>
+      <Motorg style={{ margin: "0 70px 60px" }}>
+        {campcar.maindata.map((item, index) => (
+          <MotorMapD key={item.id}>
+            <img alt="No Image" src={motorImages[index % 3]} />
+            <MotorInner>
+              <Link style={{ textDecoration: "none" }} to={`/motor/${item.id}`}>
+                <MotorMapH1>{item.car.name}</MotorMapH1>
+              </Link>
+              <MotorMapH1 $comp={true}>{item.car.company}</MotorMapH1>
+              <MotorMapH1 $cost>{item.car.cost}</MotorMapH1>
+              <BtnDiv>
+                <Btn>
+                  <MotorMapH1 $btn>Order</MotorMapH1>
+                </Btn>
+                <Btn>
+                  <MotorMapH1 $btn>Compare</MotorMapH1>
+                </Btn>
+              </BtnDiv>
+            </MotorInner>
+          </MotorMapD>
+        ))}
+      </Motorg>
     </div>
   );
 };

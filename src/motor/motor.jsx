@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { campcar } from "../mockdata";
 import { Link } from "react-router-dom";
 import { Motormap } from "./motormap";
-import { MotorDiv, MotorH1 } from "../style";
+import { HeaderDiv, MotorDiv, MotorH1, MotorMapH1 } from "../style";
+import Footerr from "../footer/footer";
 // import motorback from "../assets/image 5.png";
 
 export const Motor = () => {
@@ -13,10 +14,16 @@ export const Motor = () => {
         <MotorH1 $range>Our ranges</MotorH1>
         <MotorH1 $title>Motors</MotorH1>
       </MotorDiv>
+      <HeaderDiv style={{ margin: "0 70px 60px" }}>
+        <MotorMapH1
+          style={{ display: "flex", gap: "10px", alignItems: "center" }}
+        >
+          Item<MotorMapH1 $cost>{campcar.maindata.length}</MotorMapH1>
+        </MotorMapH1>
+      </HeaderDiv>
 
-      <h1>Motor Information</h1>
-      <h2>Number of cars: {campcar.maindata.length}</h2>
       <Motormap />
+      <Footerr />
     </div>
   );
 };
