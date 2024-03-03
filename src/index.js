@@ -8,6 +8,7 @@ import Popup from "reactjs-popup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Motor } from "./motor/motor";
 import { Navbar } from "./components/navbar";
+import { Motorinfo } from "./motor/motorinfo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Carusel />} />
         <Route path="/motor" element={<Motor />} />
+        <Route path="/motor/:id" element={<Motorinfo />} />
       </Routes>
     </BrowserRouter>
     {/* <Carusel /> */}

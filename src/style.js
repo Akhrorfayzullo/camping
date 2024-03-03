@@ -12,6 +12,14 @@ import im22 from "./assets/im22.png";
 import im23 from "./assets/im23.png";
 import im24 from "./assets/im24.png";
 import motorback from "./assets/motorB.png";
+import infocar1 from "./assets/infocar1.png";
+import int1 from "./assets/int1.png";
+import int2 from "./assets/int2.png";
+import int3 from "./assets/int3.png";
+import int4 from "./assets/int4.png";
+import int5 from "./assets/int5.png";
+import infoimg1 from "./assets/carinfo.png";
+import campback from "./assets/campback.png";
 import mot1 from "./assets/motor1.png";
 import mot2 from "./assets/motor2.png";
 import mot3 from "./assets/motor3.png";
@@ -63,6 +71,18 @@ export const Img = styled.img.attrs((props) => ({
     ? im23
     : props.$im24
     ? im24
+    : props.$infocar1
+    ? infocar1
+    : props.$int1
+    ? int1
+    : props.$int2
+    ? int2
+    : props.$int3
+    ? int3
+    : props.$int4
+    ? int4
+    : props.$int5
+    ? int5
     : undefined,
 }))`
   /* border: 1px solid red; */
@@ -185,4 +205,74 @@ export const HeaderDiv = styled.div`
   /* border: 1px solid black; */
   margin: 60px 0 37px 0;
   /* border-bottom: 1px solid black; */
+`;
+export const MotWrap = styled.div`
+  flex: ${(props) => (props.$wrap1 ? "1" : "4")};
+  border: 10px solid black;
+`;
+export const MotorInfo = styled.div`
+  /* border: 10px solid darkgoldenrod; */
+  /* background-image: url(${motorback}); */
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+`;
+export const Infos = styled.div`
+  /* background-image: url(${infoimg1}); */
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(${infoimg1}); */
+  background-image: url(${campback});
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+`;
+export const BtnWrap = styled.div`
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+`;
+export const InfoBtn = styled.button`
+  width: 181.5px;
+  height: 50.014px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  transition: background 0.3s ease;
+
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  &:hover {
+    background-color: #006dab;
+    border: 2px solid #006dab; /*
+     Change to blue on hover */
+  }
+`;
+export const InfoMain = styled.div`
+  background-color: #fafafa;
+  display: grid;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr; /* Change to a single column on smaller screens */
+  }
+`;
+export const Divchala = styled.div`
+  /* max-width: 683px; */
+  height: 477px;
+  background-color: greenyellow;
+  border: 2px solid black;
+  /* align-self: center; */
 `;
