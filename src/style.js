@@ -242,9 +242,9 @@ export const InfoBtn = styled.button`
   width: 181.5px;
   height: 50.014px;
   border-radius: 10px;
-  border: 2px solid #fff;
+  border: ${(props) => (props.$info ? "2px solid #006dab" : "2px solid #fff")};
   background-color: transparent;
-  color: #fff;
+  color: ${(props) => (props.$info ? "#006dab" : "#fff")};
   transition: background 0.3s ease;
 
   font-family: "Montserrat";
@@ -254,7 +254,8 @@ export const InfoBtn = styled.button`
   line-height: normal;
   &:hover {
     background-color: #006dab;
-    border: 2px solid #006dab; /*
+    border: 2px solid #006dab;
+    color: #fff; /*
      Change to blue on hover */
   }
 `;
@@ -266,13 +267,115 @@ export const InfoMain = styled.div`
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
   @media screen and (max-width: 1200px) {
-    grid-template-columns: 1fr; /* Change to a single column on smaller screens */
+    grid-template-columns: 1fr;
+    gap: 20px;
+    & > div:nth-child(2) {
+      order: -1;
+      margin-top: 80px;
+      /* background-color: red; */
+    }
+
+    & > div:nth-child(1) {
+      order: 2;
+    }
+
+    & > div:nth-child(3) {
+      order: 3;
+    }
+
+    & > div:nth-child(4) {
+      order: 4;
+    }
+
+    & > div:nth-child(5) {
+      order: 6;
+    }
+
+    & > div:nth-child(6) {
+      order: 5;
+    }
+
+    & > div:nth-child(7),
+    & > div:nth-child(8) {
+      order: 7;
+    }
+    & > div:nth-child(9) {
+      order: 10;
+    }
+    & > div:nth-child(10) {
+      order: 9;
+    }
   }
 `;
 export const Divchala = styled.div`
   /* max-width: 683px; */
-  height: 477px;
-  background-color: greenyellow;
-  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  /* background-color: greenyellow; */
+  /* border: 2px solid black; */
+  @media screen and (max-width: 1200px) {
+    height: fit-content;
+
+    /* Change to a single column on smaller screens */
+  }
   /* align-self: center; */
+`;
+export const Infoimg = styled.img.attrs((props) => ({
+  alt: "no img",
+  src: props.$car1
+    ? car1
+    : props.$infocar1
+    ? infocar1
+    : props.$int1
+    ? int1
+    : props.$int2
+    ? int2
+    : props.$int3
+    ? int3
+    : props.$int4
+    ? int4
+    : props.$int5
+    ? int5
+    : undefined,
+}))`
+  height: 100%;
+  width: 100%;
+  @media screen and (max-width: 1200px) {
+    width: 80%;
+    border-radius: 10px;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.2) 100%
+      ),
+      url(<path-to-image>), lightgray 50% / cover no-repeat; /* Change to a single column on smaller screens */
+  }
+`;
+export const Infoh1 = styled.h1`
+  color: #373737;
+  font-family: Montserrat;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 20px;
+`;
+export const InfoP = styled.p`
+  color: #373737;
+  width: 533px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+`;
+export const InfoSDiv = styled.div`
+  /* border: 1px solid red; */
+  width: 100%;
+  margin: 100px 70px 0 80px;
+  @media screen and (max-width: 1200px) {
+    width: 80%;
+    margin: 40px 0 80px; /* Change to a single column on smaller screens */
+  }
 `;
