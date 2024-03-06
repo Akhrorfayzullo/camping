@@ -14,6 +14,8 @@ import {
   InfoP,
   Infoh1,
 } from "../style";
+import LabTabs from "./tabs";
+import FullWidthTabs from "./tabs";
 
 export const Motorinfo = () => {
   let { id } = useParams();
@@ -114,6 +116,9 @@ export const Motorinfo = () => {
           <Infoimg $int5 />
         </Divchala>
       </InfoMain>
+      {/* <LabTabs /> */}
+      {/* <TabPanel /> */}
+      {/* <FullWidthTabs /> */}
       {/* <Motorinfo>dfrfr</Motorinfo> */}
       <div>Motor info {id}</div>
       <div>{result.car.company}</div>
