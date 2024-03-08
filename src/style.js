@@ -198,7 +198,7 @@ export const Motorg = styled.div`
   display: grid;
   place-items: center;
   /* border: 1px solid firebrick; */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(223px, 1fr));
   gap: 20px;
 `;
 export const HeaderDiv = styled.div`
@@ -207,8 +207,11 @@ export const HeaderDiv = styled.div`
   /* border-bottom: 1px solid black; */
 `;
 export const MotWrap = styled.div`
-  flex: ${(props) => (props.$wrap1 ? "1" : "4")};
-  border: 10px solid black;
+  /* flex: ${(props) => (props.$wrap1 ? "3" : "8")}; */
+  width: ${(props) => (props.$wrap1 ? "fit-content" : "100%")};
+  margin: ${(props) => (props.$wrap1 ? "60px 30px 0 70px" : "0")};
+  /* height: 100%; */
+  /* border: 1px solid yellow; */
 `;
 export const MotorInfo = styled.div`
   /* border: 10px solid darkgoldenrod; */
@@ -363,7 +366,7 @@ export const Infoh1 = styled.h1`
 `;
 export const InfoP = styled.p`
   color: #373737;
-  width: 533px;
+  width: 534px;
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -371,11 +374,30 @@ export const InfoP = styled.p`
   line-height: 24px; /* 150% */
 `;
 export const InfoSDiv = styled.div`
-  /* border: 1px solid red; */
+  /* border: 1px solid red;~ */
   width: 100%;
   margin: 100px 70px 0 80px;
   @media screen and (max-width: 1200px) {
     width: 80%;
     margin: 40px 0 80px; /* Change to a single column on smaller screens */
   }
+`;
+export const SideMain = styled.div`
+  /* border: 1px solid red; */
+  /* width: fit-content; */
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 40px; */
+  /* height: 100%; */
+`;
+export const Costh1 = styled.h1`
+  color: #373737;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  border-bottom: 1px solid rgba(55, 55, 55, 0.5);
+  margin-bottom: 15px;
 `;
