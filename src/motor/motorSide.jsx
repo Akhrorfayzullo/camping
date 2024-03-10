@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { BtnDiv, Costh1, SideMain } from "../style";
+import { BtnDiv, Costh1, SideMain, BtnWrap, InfoBtn } from "../style";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -91,6 +91,110 @@ export const MotorSide = () => {
             </FormGroup>
           </AccordionDetails>
         </Accordion>
+        <Accordion
+          defaultExpanded
+          style={{ boxShadow: "none", border: "none" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <Costh1 style={{ width: "100%" }}>License type</Costh1>
+          </AccordionSummary>
+          <AccordionDetails
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="1 year"
+              />
+              <FormControlLabel control={<Checkbox />} label="2 year" />
+              <FormControlLabel control={<Checkbox />} label="1.5year" />
+            </FormGroup>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          defaultExpanded
+          style={{ boxShadow: "none", border: "none" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <Costh1 style={{ width: "100%" }}>License type</Costh1>
+          </AccordionSummary>
+          <AccordionDetails
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="1 year"
+              />
+              <FormControlLabel control={<Checkbox />} label="2 year" />
+              <FormControlLabel control={<Checkbox />} label="1.5year" />
+            </FormGroup>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          defaultExpanded
+          style={{ boxShadow: "none", border: "none" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <Costh1 style={{ width: "100%" }}>Number of travelers</Costh1>
+          </AccordionSummary>
+          <AccordionDetails
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="2"
+              />
+              <FormControlLabel control={<Checkbox />} label="3-4" />
+              <FormControlLabel control={<Checkbox />} label="5+" />
+            </FormGroup>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          defaultExpanded
+          style={{ boxShadow: "none", border: "none" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <Costh1 style={{ width: "100%" }}>Location</Costh1>
+          </AccordionSummary>
+          <AccordionDetails
+            style={{ boxShadow: "none", border: "none", paddingBottom: "0" }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Seoul"
+              />
+              <FormControlLabel control={<Checkbox />} label="Deajon" />
+              <FormControlLabel control={<Checkbox />} label="Pusan" />
+            </FormGroup>
+          </AccordionDetails>
+        </Accordion>
+        <BtnWrap>
+          <InfoBtn $side>ADD TO CART</InfoBtn>
+          <InfoBtn $side1>COMPARE</InfoBtn>
+        </BtnWrap>
       </SideMain>
     </div>
   );

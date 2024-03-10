@@ -1,89 +1,59 @@
-// import * as React from "react";
-// import PropTypes from "prop-types";
-// import SwipeableViews from "react-swipeable-views";
-// import { useTheme } from "@mui/material/styles";
-// import AppBar from "@mui/material/AppBar";
-// import Tabs from "@mui/material/Tabs";
-// import Tab from "@mui/material/Tab";
-// import Typography from "@mui/material/Typography";
-// import Box from "@mui/material/Box";
+import * as React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import Footerr from "../footer/footer";
+import { Navbar } from "../components/navbar";
 
-// function TabPanel(props) {
-//   const { children, value, index, ...other } = props;
+export default function TabsWrappedLabel() {
+  const [value, setValue] = React.useState("one");
 
-//   return (
-//     <div
-//       role="tabpanel"
-//       hidden={value !== index}
-//       id={`full-width-tabpanel-${index}`}
-//       aria-labelledby={`full-width-tab-${index}`}
-//       {...other}
-//     >
-//       {value === index && (
-//         <Box sx={{ p: 3 }}>
-//           <Typography>{children}</Typography>
-//         </Box>
-//       )}
-//     </div>
-//   );
-// }
+  const TabPanel = ({ value, index, children }) => {
+    return (
+      <div role="tabpanel" hidden={value !== index}>
+        {value === index && <div>{children}</div>}
+      </div>
+    );
+  };
 
-// TabPanel.propTypes = {
-//   children: PropTypes.node,
-//   index: PropTypes.number.isRequired,
-//   value: PropTypes.number.isRequired,
-// };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-// function a11yProps(index) {
-//   return {
-//     id: `full-width-tab-${index}`,
-//     "aria-controls": `full-width-tabpanel-${index}`,
-//   };
-// }
+  return (
+    <Box sx={{ width: "100%", backgroundColor: "rgba(0, 109, 171, 0.20)" }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="wrapped label tabs example"
+      >
+        <Tab value="one" label="Item reviews" wrapped />
+        <Tab value="two" label="Item Two" />
+        <Tab value="three" label="Item Three" />
+        <Tab value={value} label="four">
+          {/* <Footerr /> */}
+          <Navbar />
+        </Tab>
+      </Tabs>
+      <TabPanel value={value} index="one">
+        {/* Content for the "Item reviews" tab */}
+        <p>This is the content for the "Item reviews" tab.</p>
+        <Footerr />
+      </TabPanel>
 
-// export default function FullWidthTabs() {
-//   const theme = useTheme();
-//   const [value, setValue] = React.useState(0);
+      <TabPanel value={value} index="two">
+        {/* Content for the "Item Two" tab */}
+        <p>This is the content for the "Item Two" tab.</p>
+      </TabPanel>
 
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
+      <TabPanel value={value} index="three">
+        {/* Content for the "Item Three" tab */}
+        <p>This is the content for the "Item Three" tab.</p>
+      </TabPanel>
 
-//   const handleChangeIndex = (index) => {
-//     setValue(index);
-//   };
-
-//   return (
-//     <Box sx={{ bgcolor: "background.paper", width: 500 }}>
-//       <AppBar position="static">
-//         <Tabs
-//           value={value}
-//           onChange={handleChange}
-//           indicatorColor="secondary"
-//           textColor="inherit"
-//           variant="fullWidth"
-//           aria-label="full width tabs example"
-//         >
-//           <Tab label="Item One" {...a11yProps(0)} />
-//           <Tab label="Item Two" {...a11yProps(1)} />
-//           <Tab label="Item Three" {...a11yProps(2)} />
-//         </Tabs>
-//       </AppBar>
-//       <SwipeableViews
-//         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-//         index={value}
-//         onChangeIndex={handleChangeIndex}
-//       >
-//         <TabPanel value={value} index={0} dir={theme.direction}>
-//           Item One
-//         </TabPanel>
-//         <TabPanel value={value} index={1} dir={theme.direction}>
-//           Item Two
-//         </TabPanel>
-//         <TabPanel value={value} index={2} dir={theme.direction}>
-//           Item Three
-//         </TabPanel>
-//       </SwipeableViews>
-//     </Box>
-//   );
-// }
+      <TabPanel value={value} index="four">
+        {/* Content for the "Item 4" tab, using the Footerr component */}
+      </TabPanel>
+    </Box>
+  );
+}
