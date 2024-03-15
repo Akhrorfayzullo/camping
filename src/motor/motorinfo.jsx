@@ -15,6 +15,7 @@ import {
   Infoh1,
 } from "../style";
 import TabsWrappedLabel from "./tabs";
+import Footerr from "../footer/footer";
 
 export const Motorinfo = () => {
   let { id } = useParams();
@@ -120,9 +121,7 @@ export const Motorinfo = () => {
       {/* <FullWidthTabs /> */}
       <TabsWrappedLabel />
       {/* <Motorinfo>dfrfr</Motorinfo> */}
-      <div>Motor info {id}</div>
-      <div>{result.car.company}</div>
-      <div>{result.car.cost}</div>
+      <Footerr />
     </div>
   );
 };

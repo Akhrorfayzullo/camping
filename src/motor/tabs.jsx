@@ -4,6 +4,9 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Footerr from "../footer/footer";
 import { Navbar } from "../components/navbar";
+import { Review } from "./insideTabComponents/review";
+import { Question } from "./insideTabComponents/question";
+import { Fquestion } from "./insideTabComponents/fquestion";
 
 export default function TabsWrappedLabel() {
   const [value, setValue] = React.useState("one");
@@ -21,39 +24,49 @@ export default function TabsWrappedLabel() {
   };
 
   return (
-    <Box sx={{ width: "100%", backgroundColor: "rgba(0, 109, 171, 0.20)" }}>
+    <Box
+      sx={{
+        width: "100%",
+        marginTop: "80px",
+        backgroundColor: "rgba(0, 109, 171, 0.20)",
+        marginBottom: "80px",
+      }}
+    >
       <Tabs
         value={value}
         onChange={handleChange}
         aria-label="wrapped label tabs example"
+        sx={{
+          marginLeft: "70px",
+        }}
       >
         <Tab value="one" label="Item reviews" wrapped />
-        <Tab value="two" label="Item Two" />
-        <Tab value="three" label="Item Three" />
-        <Tab value={value} label="four">
-          {/* <Footerr /> */}
-          <Navbar />
-        </Tab>
+        <Tab value="two" label="Q&A" />
+        <Tab value="three" label="FAQ" />
+        <Tab value="foour" label="Contact" />
       </Tabs>
-      <TabPanel value={value} index="one">
-        {/* Content for the "Item reviews" tab */}
-        <p>This is the content for the "Item reviews" tab.</p>
-        <Footerr />
-      </TabPanel>
+      <div
+        style={{
+          marginTop: "45px",
 
-      <TabPanel value={value} index="two">
-        {/* Content for the "Item Two" tab */}
-        <p>This is the content for the "Item Two" tab.</p>
-      </TabPanel>
+          backgroundColor: "#FAFAFA",
+        }}
+      >
+        <div style={{ marginLeft: "75px" }}>
+          <TabPanel value={value} index="one">
+            <Review />
+          </TabPanel>
 
-      <TabPanel value={value} index="three">
-        {/* Content for the "Item Three" tab */}
-        <p>This is the content for the "Item Three" tab.</p>
-      </TabPanel>
+          <TabPanel value={value} index="two">
+            <Question />
+          </TabPanel>
 
-      <TabPanel value={value} index="four">
-        {/* Content for the "Item 4" tab, using the Footerr component */}
-      </TabPanel>
+          <TabPanel value={value} index="three">
+            {/* Content for the "Item Three" tab */}
+            <Fquestion />
+          </TabPanel>
+        </div>
+      </div>
     </Box>
   );
 }

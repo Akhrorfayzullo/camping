@@ -12,6 +12,7 @@ import im22 from "./assets/im22.png";
 import im23 from "./assets/im23.png";
 import im24 from "./assets/im24.png";
 import motorback from "./assets/motorB.png";
+import reimg from "./assets/reimg.png";
 import infocar1 from "./assets/infocar1.png";
 import int1 from "./assets/int1.png";
 import int2 from "./assets/int2.png";
@@ -71,6 +72,8 @@ export const Img = styled.img.attrs((props) => ({
     ? im23
     : props.$im24
     ? im24
+    : props.$reimg
+    ? reimg
     : props.$infocar1
     ? infocar1
     : props.$int1
@@ -86,7 +89,7 @@ export const Img = styled.img.attrs((props) => ({
     : undefined,
 }))`
   /* border: 1px solid red; */
-  height: 200px;
+  height: ${(props) => (props.$reimg ? "100px" : "200px")};
 `;
 
 export const MulticarDiv = styled.div`
@@ -400,4 +403,72 @@ export const Costh1 = styled.h1`
   line-height: 100%;
   border-bottom: 1px solid rgba(55, 55, 55, 0.5);
   margin-bottom: 15px;
+`;
+export const ReviewD = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+
+  margin-bottom: 50px;
+`;
+export const Reviewh1 = styled.h1`
+  color: ${(props) => (props.$num ? "#006DAB" : "#373737")};
+  font-family: Montserrat;
+  font-size: 20px;
+
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-right: 5px;
+`;
+export const SimpleD = styled.div`
+  display: flex;
+`;
+export const ImgDiv = styled.div`
+  width: fit-content;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 50px solid red; */
+`;
+export const Reeinfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 15px;
+  margin-right: ${(props) => (props.$right ? "100px" : "none")};
+  /* border: 1px solid red; */
+  height: 100%;
+  gap: 10px;
+`;
+export const ReH1 = styled.h1`
+  color: #373737;
+  margin-bottom: 10px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+`;
+export const LeftText = styled.h1`
+  color: ${(props) => (props.$dark ? "#373737" : "rgba(55, 55, 55, 0.7)")};
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  align-self: center;
+`;
+export const InoneLine = styled.div`
+  display: flex;
+`;
+export const Questionh1 = styled.h1`
+  color: #023047;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 31.2px */
 `;
