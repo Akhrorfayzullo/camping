@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Motor } from "./motor/motor";
 import { Navbar } from "./components/navbar";
 import { Motorinfo } from "./motor/motorinfo";
+import { Caravan } from "./caravan/motor";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route path="/" element={<Carusel />} />
         <Route path="/motor" element={<Motor />} />
         <Route path="/motor/:id" element={<Motorinfo />} />
+        <Route path="/caravan" element={<Caravan />} />
       </Routes>
     </BrowserRouter>
     {/* <Carusel /> */}

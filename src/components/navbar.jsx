@@ -13,9 +13,15 @@ export const Navbar = () => {
           <Navp>
             <Link to="/motor">Motor</Link>
           </Navp>
-          <Navp>Caravan</Navp>
-          <Navp>Caravan</Navp>
-          <Navp>Caravan</Navp>
+          <Navp>
+            <Link to="/caravan">Caravan</Link>
+          </Navp>
+          <Navp>
+            <Link to="/tuning">Tuning</Link>
+          </Navp>
+          <Navp>
+            <Link to="/usedcars">Used Cars</Link>
+          </Navp>
         </Innerdiv>
         <Innerdiv>
           <FontAwesomeIcon icon={faCartShopping} />
