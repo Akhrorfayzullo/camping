@@ -7,6 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import { Questionh1 } from "../../style";
 import TextField from "@mui/material/TextField";
+import { ContactUs } from "./email";
 
 export const Fquestion = () => {
   return (
@@ -111,30 +112,8 @@ export const Fquestion = () => {
         }}
       >
         <Questionh1>Have you got a question</Questionh1>
-        <TextField
-          id="filled-multiline-flexible"
-          label="Your name"
-          multiline
-          maxRows={4}
-          variant="filled"
-          style={{ width: "100%", borderRadius: "8px", height: "50px" }}
-        />
-        <TextField
-          id="filled-multiline-flexible"
-          label="Your email"
-          multiline
-          maxRows={4}
-          variant="filled"
-          style={{ width: "100%", borderRadius: "8px", height: "50px" }}
-        />
-        <TextField
-          id="outlined-multiline-static"
-          label="Your question"
-          multiline
-          rows={4}
-          variant="filled"
-          style={{ width: "100%", borderRadius: "8px", height: "120px" }}
-        />
+
+        <ContactUs />
       </div>
     </div>
   );
