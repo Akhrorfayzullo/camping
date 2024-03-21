@@ -26,6 +26,7 @@ export const Motor = () => {
               margin: "60px 70px 60px",
               borderBottom: "1px solid rgba(55, 55, 55, 0.50)",
               marginBottom: "15px",
+              border: "2px solid red",
             }}
           >
             <MotorMapH1

@@ -11,6 +11,7 @@ import im21 from "./assets/im21.png";
 import im22 from "./assets/im22.png";
 import im23 from "./assets/im23.png";
 import im24 from "./assets/im24.png";
+import cmpinfo from "./assets/camp.png";
 import motorback from "./assets/motorB.png";
 import reimg from "./assets/reimg.png";
 import infocar1 from "./assets/infocar1.png";
@@ -74,6 +75,8 @@ export const Img = styled.img.attrs((props) => ({
     ? im24
     : props.$reimg
     ? reimg
+    : props.$cmpinfo
+    ? cmpinfo
     : props.$infocar1
     ? infocar1
     : props.$int1
