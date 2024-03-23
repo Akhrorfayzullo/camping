@@ -13,6 +13,10 @@ import {
   InfoSDiv,
   InfoP,
   Infoh1,
+  DataD,
+  DataInner,
+  Img,
+  Vaqtincha,
 } from "../style";
 import TabsWrappedLabel from "./tabs";
 import Footerr from "../footer/footer";
@@ -32,6 +36,14 @@ export const Motorinfo = () => {
           <InfoBtn>COMPARE</InfoBtn>
         </BtnWrap>
       </Infos>
+      <DataD>
+        <DataInner>
+          <Img $cmpinfo />
+        </DataInner>
+        <DataInner>
+          <Vaqtincha />
+        </DataInner>
+      </DataD>
       <InfoMain>
         <Divchala>
           <InfoSDiv>

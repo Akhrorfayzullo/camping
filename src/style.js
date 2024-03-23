@@ -92,7 +92,11 @@ export const Img = styled.img.attrs((props) => ({
     : undefined,
 }))`
   /* border: 1px solid red; */
-  height: ${(props) => (props.$reimg ? "100px" : "200px")};
+  height: ${(props) =>
+    props.$reimg ? "100px" : props.$cmpinfo ? "none" : "200px"};
+  @media screen and (max-width: 1200px) {
+    width: ${(props) => (props.$cmpinfo ? "80%" : "none")};
+  }
 `;
 
 export const MulticarDiv = styled.div`
@@ -474,4 +478,30 @@ export const Questionh1 = styled.h1`
   font-style: normal;
   font-weight: 700;
   line-height: 130%; /* 31.2px */
+`;
+export const DataD = styled.div`
+  background-color: #fafafa;
+  display: grid;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+`;
+
+export const DataInner = styled.div`
+  border: 1px solid red;
+  width: 100%;
+  margin: 0 0px 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 200px; */
+`;
+export const Vaqtincha = styled.div`
+  width: 600px;
+  height: 360px;
 `;

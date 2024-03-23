@@ -10,7 +10,7 @@ import { borderBottom } from "@mui/system";
 
 export const Motor = () => {
   return (
-    <div style={{ border: "1px solid red" }}>
+    <div style={{ border: "1px solid green" }}>
       <MotorDiv>
         <MotorH1>Home / Motors</MotorH1>
         <MotorH1 $range>Our ranges</MotorH1>
@@ -26,7 +26,7 @@ export const Motor = () => {
               margin: "60px 70px 60px",
               borderBottom: "1px solid rgba(55, 55, 55, 0.50)",
               marginBottom: "15px",
-              border: "2px solid red",
+              border: "2px solid yellow",
             }}
           >
             <MotorMapH1
