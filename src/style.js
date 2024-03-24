@@ -161,6 +161,7 @@ export const MotorMapD = styled.div`
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+
   /* border: 1px solid red; */
   padding: 15px 0px;
   flex-direction: column;
@@ -197,7 +198,9 @@ export const Btn = styled.button`
 export const MotorInner = styled.div`
   /* border: 1px solid black; */
   width: 100%;
-  height: 100%;
+  height: 140px;
+  /* height: max-content; */
+  /* gap: 10px; */
   padding: 0 10px;
   /* gap: 20px; */
   display: flex;
@@ -493,15 +496,62 @@ export const DataD = styled.div`
 `;
 
 export const DataInner = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   margin: 0 0px 70px;
   display: flex;
-  justify-content: center;
+  justify-content: ${(props) => (props.$info ? "none" : "center")};
   align-items: center;
+  @media screen and (max-width: 1200px) {
+    justify-content: center;
+  }
   /* height: 200px; */
 `;
 export const Vaqtincha = styled.div`
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   height: 360px;
+  background-color: #fff;
+  padding: 30px 20px 0;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+`;
+export const InfoInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  gap: 10px;
+  padding-bottom: 10px;
+  /* border: 1px solid blanchedalmond; */
+  border-bottom: 1px solid rgba(55, 55, 55, 0.3);
+`;
+export const Aidal = styled.h1`
+  color: ${(props) => (props.$price ? "#006DAB" : "#000")};
+  font-family: Montserrat;
+  font-size: ${(props) =>
+    props.$price ? "#30px" : props.$comp ? "18px" : "#25px"};
+  font-style: normal;
+  font-weight: ${(props) => (props.$comp ? "400" : "700")};
+  line-height: normal;
+`;
+export const AidalWrap = styled.div`
+  display: flex;
+  /* border: 1px solid blanchedalmond; */
+  margin-right: ${(props) => (props.$info ? "30%" : "none")};
+  justify-content: space-between;
+`;
+export const FullInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 5px;
+  margin-top: 15px;
+  /* border: 1px solid red; */
+`;
+export const FullInfoH1 = styled.div`
+  color: ${(props) => (props.$info ? "rgba(55, 55, 55, 0.80)" : "#373737")};
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: ${(props) => (props.$info ? "400" : "500")};
+  line-height: normal;
 `;

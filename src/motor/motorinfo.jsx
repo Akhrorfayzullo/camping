@@ -17,6 +17,11 @@ import {
   DataInner,
   Img,
   Vaqtincha,
+  InfoInner,
+  Aidal,
+  AidalWrap,
+  FullInfo,
+  FullInfoH1,
 } from "../style";
 import TabsWrappedLabel from "./tabs";
 import Footerr from "../footer/footer";
@@ -40,8 +45,28 @@ export const Motorinfo = () => {
         <DataInner>
           <Img $cmpinfo />
         </DataInner>
-        <DataInner>
-          <Vaqtincha />
+        <DataInner $info>
+          <Vaqtincha>
+            <InfoInner>
+              <AidalWrap>
+                <Aidal>{result.car.name}</Aidal>
+                <Aidal $price>{result.car.cost}</Aidal>
+              </AidalWrap>
+              <Aidal $comp>{result.car.company}</Aidal>
+            </InfoInner>
+            <AidalWrap $info>
+              <FullInfo>
+                <FullInfoH1>Company</FullInfoH1>
+                <FullInfoH1>People</FullInfoH1>
+                <FullInfoH1>License type</FullInfoH1>
+              </FullInfo>
+              <FullInfo>
+                <FullInfoH1 $info>{result.car.company}</FullInfoH1>
+                <FullInfoH1 $info>{result.car.people}</FullInfoH1>
+                <FullInfoH1 $info>{result.car.license}</FullInfoH1>
+              </FullInfo>
+            </AidalWrap>
+          </Vaqtincha>
         </DataInner>
       </DataD>
       <InfoMain>

@@ -20,22 +20,27 @@ export const Motormap = () => {
       <Motorg style={{ margin: "0 70px 60px" }}>
         {campcar.maindata.map((item, index) => (
           <MotorMapD key={item.id}>
-            <img alt="No Image" src={motorImages[index % 3]} />
-            <MotorInner>
-              <Link style={{ textDecoration: "none" }} to={`/motor/${item.id}`}>
+            <Link style={{ textDecoration: "none" }} to={`/motor/${item.id}`}>
+              <img
+                alt="No Image"
+                src={motorImages[index % 3]}
+                style={{ height: "140px" }}
+              />
+              <MotorInner>
                 <MotorMapH1>{item.car.name}</MotorMapH1>
-              </Link>
-              <MotorMapH1 $comp={true}>{item.car.company}</MotorMapH1>
-              <MotorMapH1 $cost>{item.car.cost}</MotorMapH1>
-              <BtnDiv>
-                <Btn>
-                  <MotorMapH1 $btn>Order</MotorMapH1>
-                </Btn>
-                <Btn>
-                  <MotorMapH1 $btn>Compare</MotorMapH1>
-                </Btn>
-              </BtnDiv>
-            </MotorInner>
+
+                <MotorMapH1 $comp={true}>{item.car.company}</MotorMapH1>
+                <MotorMapH1 $cost>{item.car.cost}</MotorMapH1>
+                <BtnDiv>
+                  <Btn>
+                    <MotorMapH1 $btn>Order</MotorMapH1>
+                  </Btn>
+                  <Btn>
+                    <MotorMapH1 $btn>Compare</MotorMapH1>
+                  </Btn>
+                </BtnDiv>
+              </MotorInner>
+            </Link>
           </MotorMapD>
         ))}
       </Motorg>
