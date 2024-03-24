@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import { Questionh1 } from "../../style";
 import TextField from "@mui/material/TextField";
 import { ContactUs } from "./email";
+import { Ksiz } from "./ksiz";
 
 export const Fquestion = () => {
   return (
@@ -114,6 +115,7 @@ export const Fquestion = () => {
         <Questionh1>Have you got a question</Questionh1>
 
         <ContactUs />
+        {/* <Ksiz /> */}
       </div>
     </div>
   );

@@ -21,6 +21,8 @@ import int3 from "./assets/int3.png";
 import int4 from "./assets/int4.png";
 import int5 from "./assets/int5.png";
 import infoimg1 from "./assets/carinfo.png";
+import camp1 from "./assets/campplace.png";
+
 import campback from "./assets/campback.png";
 import mot1 from "./assets/motor1.png";
 import mot2 from "./assets/motor2.png";
@@ -137,14 +139,17 @@ export const Innerdiv2 = styled.div`
   /* border: 1px solid black; */
 `;
 export const MotorDiv = styled.div`
-  /* border: 10px solid darkgoldenrod; */
-  background-image: url(${motorback});
+  background-image: ${(props) =>
+    props.$camp ? `url(${camp1})` : `url(${motorback})`};
   height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 13px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 export const MotorH1 = styled.h1`
   color: #fff;

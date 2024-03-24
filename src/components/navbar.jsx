@@ -22,6 +22,9 @@ export const Navbar = () => {
           <Navp>
             <Link to="/usedcars">Used Cars</Link>
           </Navp>
+          <Navp>
+            <Link to="/campPlaces">Camping Place</Link>
+          </Navp>
         </Innerdiv>
         <Innerdiv>
           <FontAwesomeIcon icon={faCartShopping} />
