@@ -20,9 +20,15 @@ export const Fquestion = () => {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [emptyField, setEmptyField] = useState(false);
 
   const handleNameChange = useCallback((e) => {
     setName(e.target.value);
+  }, []);
+
+  const handleMessageChange = useCallback((e) => {
+    setMessage(e.target.value);
   }, []);
 
   const handleEmailChange = useCallback((e) => {
@@ -39,10 +45,19 @@ export const Fquestion = () => {
     }
 
     setOpen(false);
+    setSuccess(false);
+    setError(false); // Reset error state
+    setEmptyField(false);
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (!name || !email || !message) {
+      setEmptyField(true);
+      setOpen(true);
+      return; // Prevent email sending if any input field is empty
+    }
 
     emailjs
       .sendForm("service_x0u6gaj", "template_sxoir5f", form.current, {
@@ -63,6 +78,7 @@ export const Fquestion = () => {
       );
     setEmail("");
     setName("");
+    setMessage("");
   };
 
   return (
@@ -186,7 +202,8 @@ export const Fquestion = () => {
           id="filled-multiline-flexible"
           type="text"
           label="Your name"
-          name="user_name"
+          name="to_name"
+          value={name}
           onChange={handleNameChange}
           multiline
           maxRows={4}
@@ -196,9 +213,10 @@ export const Fquestion = () => {
         <TextField
           id="filled-multiline-flexible"
           label="Your email"
-          name="user_email"
+          name="from_name"
           onChange={handleEmailChange}
           type="email"
+          value={email}
           multiline
           maxRows={4}
           variant="filled"
@@ -209,6 +227,8 @@ export const Fquestion = () => {
           label="Your question"
           multiline
           name="message"
+          value={message}
+          onChange={handleMessageChange}
           rows={4}
           variant="filled"
           style={{ width: "100%", borderRadius: "8px", height: "120px" }}
@@ -224,8 +244,18 @@ export const Fquestion = () => {
           Send question
         </Button>
       </form>
+      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity={emptyField ? "error" : "info"} // Adjust severity based on emptyField
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          {emptyField ? "Please fill out all fields." : "Yey email is sent "}
+        </Alert>
+      </Snackbar>
 
-      {success && (
+      {/* {success && (
         <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
@@ -236,7 +266,7 @@ export const Fquestion = () => {
             This is a success Alert inside a Snackbar!
           </Alert>
         </Snackbar>
-      )}
+      )} */}
 
       {error && (
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

@@ -12,6 +12,7 @@ export const ContactUs = () => {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleNameChange = useCallback((e) => {
     setName(e.target.value);
@@ -19,6 +20,10 @@ export const ContactUs = () => {
 
   const handleEmailChange = useCallback((e) => {
     setEmail(e.target.value);
+  }, []);
+
+  const handleMessageChange = useCallback((e) => {
+    setMessage(e.target.value);
   }, []);
 
   const handleClick = () => {
@@ -35,6 +40,13 @@ export const ContactUs = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    // Check if any input field is empty
+    if (!name || !email || !message) {
+      // Show "it is empty" Snackbar
+      setOpen(true);
+      return;
+    }
 
     emailjs
       .sendForm("service_x0u6gaj", "template_sxoir5f", form.current, {
@@ -53,8 +65,10 @@ export const ContactUs = () => {
           setSuccess(false);
         }
       );
+    // Clear input fields after sending email
     setEmail("");
     setName("");
+    setMessage("");
   };
 
   return (
@@ -64,7 +78,8 @@ export const ContactUs = () => {
           id="filled-multiline-flexible"
           type="text"
           label="Your name"
-          name="user_name"
+          name="to_name"
+          value={name}
           onChange={handleNameChange}
           multiline
           maxRows={4}
@@ -74,7 +89,8 @@ export const ContactUs = () => {
         <TextField
           id="filled-multiline-flexible"
           label="Your email"
-          name="user_email"
+          name="from_name"
+          value={email}
           onChange={handleEmailChange}
           type="email"
           multiline
@@ -87,14 +103,14 @@ export const ContactUs = () => {
           label="Your question"
           multiline
           name="message"
+          value={message}
+          onChange={handleMessageChange}
           rows={4}
           variant="filled"
           style={{ width: "100%", borderRadius: "8px", height: "120px" }}
         />
-        {/* <input type="submit" value="Send" /> */}
         <Button
           type="submit"
-          value="Send"
           variant="contained"
           style={{ with: "100%" }}
           onClick={handleClick}
@@ -102,16 +118,27 @@ export const ContactUs = () => {
           Send question
         </Button>
       </form>
-
+      {/* Snackbar for empty input fields */}
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="error"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Please fill out all fields.
+        </Alert>
+      </Snackbar>
+      {/* Snackbar for success */}
       {success && (
-        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+        <Snackbar open={success} autoHideDuration={2000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
             variant="filled"
             sx={{ width: "100%" }}
           >
-            This is a success Alert inside a Snackbar!
+            Email sent successfully!
           </Alert>
         </Snackbar>
       )}
@@ -119,7 +146,7 @@ export const ContactUs = () => {
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
-            severity="success"
+            severity="failed"
             variant="filled"
             sx={{ width: "100%" }}
           >

@@ -18,6 +18,8 @@ export const Question = () => {
   const [open, setOpen] = React.useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [emptyField, setEmptyField] = useState(false);
 
   const handleNameChange = useCallback((e) => {
     setName(e.target.value);
@@ -25,6 +27,10 @@ export const Question = () => {
 
   const handleEmailChange = useCallback((e) => {
     setEmail(e.target.value);
+  }, []);
+
+  const handleMessageChange = useCallback((e) => {
+    setMessage(e.target.value);
   }, []);
 
   const handleClick = () => {
@@ -37,10 +43,20 @@ export const Question = () => {
     }
 
     setOpen(false);
+    setSuccess(false);
+    setError(false); // Reset error state
+    setEmptyField(false);
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    // Check for empty input fields
+    if (!name || !email || !message) {
+      setEmptyField(true);
+      setOpen(true);
+      return; // Prevent email sending if any input field is empty
+    }
 
     emailjs
       .sendForm("service_x0u6gaj", "template_sxoir5f", form.current, {
@@ -61,6 +77,7 @@ export const Question = () => {
       );
     setEmail("");
     setName("");
+    setMessage("");
   };
 
   return (
@@ -172,7 +189,8 @@ export const Question = () => {
           id="filled-multiline-flexible"
           type="text"
           label="Your name"
-          name="user_name"
+          name="to_name"
+          value={name}
           onChange={handleNameChange}
           multiline
           maxRows={4}
@@ -182,7 +200,8 @@ export const Question = () => {
         <TextField
           id="filled-multiline-flexible"
           label="Your email"
-          name="user_email"
+          name="from_name"
+          value={email}
           onChange={handleEmailChange}
           type="email"
           multiline
@@ -194,6 +213,8 @@ export const Question = () => {
           id="outlined-multiline-static"
           label="Your question"
           multiline
+          value={message}
+          onChange={handleMessageChange}
           name="message"
           rows={4}
           variant="filled"
@@ -210,16 +231,26 @@ export const Question = () => {
           Send question
         </Button>
       </form>
+      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity={emptyField ? "error" : "info"} // Adjust severity based on emptyField
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          {emptyField ? "Please fill out all fields." : "Input is Full"}
+        </Alert>
+      </Snackbar>
 
       {success && (
-        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+        <Snackbar open={success} autoHideDuration={6000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
             variant="filled"
             sx={{ width: "100%" }}
           >
-            This is a success Alert inside a Snackbar!
+            Email sent successfullyyyy!
           </Alert>
         </Snackbar>
       )}
@@ -227,11 +258,11 @@ export const Question = () => {
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
-            severity="success"
+            severity="error"
             variant="filled"
             sx={{ width: "100%" }}
           >
-            This is a success Alert inside a Snackbar!
+            Failed to send email. Please try again later.
           </Alert>
         </Snackbar>
       )}
