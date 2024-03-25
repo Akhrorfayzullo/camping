@@ -35,6 +35,7 @@ export const Navdiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
 `;
 export const Innerdiv = styled.div`
   display: flex;
@@ -559,4 +560,71 @@ export const FullInfoH1 = styled.div`
   font-style: normal;
   font-weight: ${(props) => (props.$info ? "400" : "500")};
   line-height: normal;
+`;
+export const ParkName = styled.h1`
+  color: #373737;
+  font-family: Montserrat;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+export const Location = styled.h1`
+  color: ${(props) => (props.$loc ? "#006DAB" : "#373737")};
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+export const MapDiv = styled.div`
+  border-bottom: 1px solid rgba(55, 55, 55, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+`;
+export const CampName = styled.h1`
+  color: #000;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+export const FontDiv = styled.div`
+  display: flex;
+  /* border: 1px solid red; */
+  margin-bottom: 20px;
+  gap: 100px;
+`;
+export const FontInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  /* border: 1px solid yellow; */
+`;
+export const Fonth1 = styled.h1`
+  color: #373737;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 10px;
+`;
+export const Flast = styled.div`
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+`;
+export const Desck = styled.h1`
+  color: #373737;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 15px;
 `;

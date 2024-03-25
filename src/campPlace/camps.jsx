@@ -1,6 +1,11 @@
 import * as React from "react";
+import { ParkName, Location } from "../style";
+import { Link } from "react-router-dom";
 
 import { campcarPlace } from "./campdata";
+import camp1 from "../assets/image 11.png";
+import camp2 from "../assets/image 12.png";
+import camp3 from "../assets/image 13.png";
 
 import styled from "styled-components";
 
@@ -13,9 +18,9 @@ const CardContainer = styled.div`
 
 const Card = styled.div`
   width: 395px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
+  margin-bottom: 20px;
   flex-grow: 1;
   max-width: calc(25% - 20px); /* 4 cards per row with gap */
   @media (max-width: 1300px) {
@@ -33,30 +38,29 @@ const Image = styled.img`
   width: 100%;
   height: 250px;
   object-fit: cover;
+  border-radius: 10px;
 `;
 
 const Details = styled.div`
-  padding: 20px;
-`;
-
-const ParkName = styled.h2`
-  margin: 0;
-`;
-
-const Location = styled.p`
-  margin: 5px 0;
+  padding: 15px 0 0 0;
 `;
 
 const CampingCards = () => {
+  const campImages = [camp1, camp2, camp3];
   return (
     <CardContainer style={{ margin: "80px 70px" }}>
       {campcarPlace.maindata.map((item, index) => (
         <Card key={item.id}>
-          <Image src={item.place.photo} alt={item.place.name} />
-          <Details>
-            <ParkName>{item.place.name}</ParkName>
-            <Location>{item.place.location}</Location>
-          </Details>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`/campPlaces/${item.id}`}
+          >
+            <Image src={campImages[index % 3]} alt={item.place.name} />
+            <Details>
+              <ParkName>{item.place.name}</ParkName>
+              <Location>{item.place.locationName}</Location>
+            </Details>
+          </Link>
         </Card>
       ))}
     </CardContainer>

@@ -3,89 +3,100 @@ export const campcarPlace = {
     {
       id: 1,
       place: {
-        photo: "src={camping1}",
+        photo: `src={camping}${1}`,
         name: "Busan",
-        location: "36.88419, 127.7029796",
+        location: { latitude: 35.1796, longitude: 129.0756 },
+        locationName: "Busan",
       },
     },
     {
       id: 2,
       place: {
-        photo: "src={camping2}",
+        photo: `src={camping}${2}`,
         name: "Seoraksan National Park",
-        location: "38.1194217, 128.4654887",
+        location: { latitude: 38.1194217, longitude: 128.4654887 },
+        locationName: "Sokcho",
       },
     },
     {
       id: 3,
       place: {
-        photo: "src={camping3}",
+        photo: `src={camping}${3}`,
         name: "Jeju Island",
-        location: "33.4996211, 126.5311884",
+        location: { latitude: 33.4996211, longitude: 126.5311884 },
+        locationName: "Jeju City",
       },
     },
     {
       id: 4,
       place: {
-        photo: "src={camping4}",
+        photo: `src={camping}${4}`,
         name: "Jirisan National Park",
-        location: "35.3330041, 127.6212132",
+        location: { latitude: 35.3330041, longitude: 127.6212132 },
+        locationName: "Gurye",
       },
     },
     {
       id: 5,
       place: {
-        photo: "src={camping5}",
+        photo: `src={camping}${5}`,
         name: "Naejangsan National Park",
-        location: "35.422145, 126.837041",
+        location: { latitude: 35.422145, longitude: 126.837041 },
+        locationName: "Jeongeup",
       },
     },
     {
       id: 6,
       place: {
-        photo: "src={camping6}",
+        photo: `src={camping}${6}`,
         name: "Gapyeong",
-        location: "37.8318338, 127.5100939",
+        location: { latitude: 37.8318338, longitude: 127.5100939 },
+        locationName: "Gapyeong",
       },
     },
     {
       id: 7,
       place: {
-        photo: "src={camping7}",
+        photo: `src={camping}${7}`,
         name: "Andong",
-        location: "36.5714401, 128.1487161",
+        location: { latitude: 36.5714401, longitude: 128.1487161 },
+        locationName: "Andong",
       },
     },
     {
       id: 8,
       place: {
-        photo: "src={camping8}",
+        photo: `src={camping}${8}`,
         name: "Gyeongju",
-        location: "35.823759, 129.2851705",
+        location: { latitude: 35.823759, longitude: 129.2851705 },
+        locationName: "Gyeongju",
       },
     },
     {
       id: 9,
       place: {
-        photo: "src={camping9}",
+        photo: `src={camping}${9}`,
         name: "Yangyang",
-        location: "38.0786974, 128.6180561",
+        location: { latitude: 38.0786974, longitude: 128.6180561 },
+        locationName: "Yangyang",
       },
     },
     {
       id: 10,
       place: {
-        photo: "src={camping10}",
+        photo: `src={camping}${10}`,
         name: "Gangneung",
-        location: "37.7518532, 128.8760572",
+        location: { latitude: 37.7518532, longitude: 128.8760572 },
+        locationName: "Gangneung",
       },
     },
     {
       id: 11,
       place: {
-        photo: "src={camping11}",
+        photo: `src={camping}${11}`,
         name: "Bukhansan National Park",
-        location: "37.6920265, 127.0139837",
+        location: { latitude: 37.6920265, longitude: 127.0139837 },
+        locationName: "Seoul",
       },
     },
     // Add more camping places as needed...

@@ -11,6 +11,7 @@ import { Navbar } from "./components/navbar";
 import { Motorinfo } from "./motor/motorinfo";
 import { Caravan } from "./caravan/motor";
 import { CampPlace } from "./campPlace/campPlace";
+import { CampPlaceInfo } from "./campPlace/campPlaceInfo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Carusel />} />
         <Route path="/motor" element={<Motor />} />
+        <Route path="/campPlaces/:id" element={<CampPlaceInfo />} />
         <Route path="/motor/:id" element={<Motorinfo />} />
         <Route path="/caravan" element={<Caravan />} />
         <Route path="/campPlaces" element={<CampPlace />} />

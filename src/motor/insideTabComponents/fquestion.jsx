@@ -1,16 +1,70 @@
-import React from "react";
+import React, { useRef, useState, useCallback } from "react";
+import emailjs from "@emailjs/browser";
+import TextField from "@mui/material/TextField";
+import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 import { Questionh1 } from "../../style";
-import TextField from "@mui/material/TextField";
 import { ContactUs } from "./email";
 import { Ksiz } from "./ksiz";
 
 export const Fquestion = () => {
+  const form = useRef();
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleNameChange = useCallback((e) => {
+    setName(e.target.value);
+  }, []);
+
+  const handleEmailChange = useCallback((e) => {
+    setEmail(e.target.value);
+  }, []);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_x0u6gaj", "template_sxoir5f", form.current, {
+        publicKey: "yZkziWqshgy7iGDB2",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          setSuccess(true);
+          setError(false);
+          console.log(email, name);
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          setError(true);
+          setSuccess(false);
+        }
+      );
+    setEmail("");
+    setName("");
+  };
+
   return (
     <div style={{ display: "flex", paddingTop: "20px" }}>
       <div style={{ flex: "7" }}>
@@ -101,9 +155,24 @@ export const Fquestion = () => {
           </Accordion>
         </div>
       </div>
-      <div
+      {/* <div
         style={{
           flex: "4",
+
+          margin: "0 50px 28px 50px",
+          padding: "30px",
+          display: "flex",
+          gap: "20px",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      > */}
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        style={{
+          flex: "4",
+
           margin: "0 50px 28px 50px",
           padding: "30px",
           display: "flex",
@@ -113,10 +182,78 @@ export const Fquestion = () => {
         }}
       >
         <Questionh1>Have you got a question</Questionh1>
+        <TextField
+          id="filled-multiline-flexible"
+          type="text"
+          label="Your name"
+          name="user_name"
+          onChange={handleNameChange}
+          multiline
+          maxRows={4}
+          variant="filled"
+          style={{ width: "100%", borderRadius: "8px", height: "50px" }}
+        />
+        <TextField
+          id="filled-multiline-flexible"
+          label="Your email"
+          name="user_email"
+          onChange={handleEmailChange}
+          type="email"
+          multiline
+          maxRows={4}
+          variant="filled"
+          style={{ width: "100%", borderRadius: "8px", height: "50px" }}
+        />
+        <TextField
+          id="outlined-multiline-static"
+          label="Your question"
+          multiline
+          name="message"
+          rows={4}
+          variant="filled"
+          style={{ width: "100%", borderRadius: "8px", height: "120px" }}
+        />
+        {/* <input type="submit" value="Send" /> */}
+        <Button
+          type="submit"
+          value="Send"
+          variant="contained"
+          style={{ with: "100%" }}
+          onClick={handleClick}
+        >
+          Send question
+        </Button>
+      </form>
 
-        <ContactUs />
-        {/* <Ksiz /> */}
-      </div>
+      {success && (
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            This is a success Alert inside a Snackbar!
+          </Alert>
+        </Snackbar>
+      )}
+
+      {error && (
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            This is a success Alert inside a Snackbar!
+          </Alert>
+        </Snackbar>
+      )}
+
+      {/* <ContactUs /> */}
+      {/* <Ksiz /> */}
+      {/* </div> */}
     </div>
   );
 };

@@ -11,19 +11,44 @@ export const Navbar = () => {
         <Navh1>Camper</Navh1>
         <Innerdiv>
           <Navp>
-            <Link to="/motor">Motor</Link>
+            <Link
+              to="/motor"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Motor
+            </Link>
           </Navp>
           <Navp>
-            <Link to="/caravan">Caravan</Link>
+            <Link
+              to="/caravan"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Caravan
+            </Link>
           </Navp>
           <Navp>
-            <Link to="/tuning">Tuning</Link>
+            <Link
+              to="/tuning"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Tuning
+            </Link>
           </Navp>
           <Navp>
-            <Link to="/usedcars">Used Cars</Link>
+            <Link
+              to="/usedcars"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Used Cars
+            </Link>
           </Navp>
           <Navp>
-            <Link to="/campPlaces">Camping Place</Link>
+            <Link
+              to="/campPlaces"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              Camping Place
+            </Link>
           </Navp>
         </Innerdiv>
         <Innerdiv>
