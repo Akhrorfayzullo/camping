@@ -33,13 +33,15 @@ export const Navh1 = styled.h1`
 `;
 export const Navdiv = styled.div`
   display: flex;
+  padding: ${(props) => (props.$main ? "20px 0" : "0")};
   align-items: center;
   justify-content: space-around;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
 `;
 export const Innerdiv = styled.div`
   display: flex;
-  gap: 5vw;
+  align-items: center;
+  gap: ${(props) => (props.$small ? "3vw" : "5vw")};
 `;
 export const Navp = styled.p`
   color: black;
@@ -97,18 +99,23 @@ export const Img = styled.img.attrs((props) => ({
   /* border: 1px solid red; */
   height: ${(props) =>
     props.$reimg ? "100px" : props.$cmpinfo ? "none" : "200px"};
+  width: ${(props) =>
+    props.$im11 ||
+    props.$im12 ||
+    props.$im13 ||
+    props.$im14 ||
+    props.$im21 ||
+    props.$im22 ||
+    props.$im23 ||
+    props.$im24 ||
+    props.$im19
+      ? "90%"
+      : "none"};
   @media screen and (max-width: 1200px) {
     width: ${(props) => (props.$cmpinfo ? "80%" : "none")};
   }
 `;
 
-export const MulticarDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* border: 1px solid black; */
-`;
 export const Parallelogram = styled.div`
   display: flex;
   align-items: center;
@@ -118,17 +125,41 @@ export const Parallelogram = styled.div`
   background-color: #3498db;
   clip-path: polygon(15% 0%, 100% 0, 85% 100%, 0% 100%);
 `;
+export const MulticarDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+`;
 export const ImageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px; /* 10px gap on each side of the image (20px total) */
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  gap: 20px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  @media (min-width: 1000px) {
+    grid-template-columns: ${(props) =>
+      props.$sec
+        ? "repeat(3, 1fr)"
+        : "repeat(4, 1fr)"}; /* Four columns in one row */
+  }
+  @media (max-width: 425px) {
+    gap: 40px;
+  }
   /* border: 1px solid red; */
 `;
+
 export const Sdiv = styled.div`
   display: flex;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 40px;
+  }
   /* border: 1px solid black; */
 `;
 export const Innerdivv = styled.div`
@@ -333,7 +364,9 @@ export const Divchala = styled.div`
   /* max-width: 683px; */
   display: flex;
   justify-content: center;
+  /* align-items: flex-start; */
   height: 70vh;
+  width: 49.3vw;
   /* background-color: greenyellow; */
   /* border: 2px solid black; */
   @media screen and (max-width: 1200px) {
@@ -362,7 +395,9 @@ export const Infoimg = styled.img.attrs((props) => ({
     : undefined,
 }))`
   height: 100%;
-  width: 100%;
+  width: 50vw;
+  /* border: 4px solid saddlebrown; */
+
   @media screen and (max-width: 1200px) {
     width: 80%;
     border-radius: 10px;

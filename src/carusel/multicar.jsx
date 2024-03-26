@@ -13,6 +13,7 @@ import {
 } from "../style";
 import Popupp from "../components/popup/popup";
 import Footer from "../footer/footer";
+import Footerr from "../footer/footer";
 
 export const Multicar = () => {
   const responsive = {
@@ -108,7 +109,7 @@ export const Multicar = () => {
           </p>
         </Innerdivv>
         <Innerdiv2>
-          <ImageGrid>
+          <ImageGrid $sec>
             <MulticarDiv>
               <Img $im11 />
             </MulticarDiv>
@@ -130,7 +131,7 @@ export const Multicar = () => {
           </ImageGrid>
         </Innerdiv2>
       </Sdiv>
-      <Footer />
+      <Footerr />
     </div>
   );
 };

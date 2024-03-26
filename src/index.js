@@ -12,12 +12,14 @@ import { Motorinfo } from "./motor/motorinfo";
 import { Caravan } from "./caravan/motor";
 import { CampPlace } from "./campPlace/campPlace";
 import { CampPlaceInfo } from "./campPlace/campPlaceInfo";
+import ResponsiveDrawer from "./components/popup/drawer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
+      {/* <ResponsiveDrawer/> */}
       <Routes>
         <Route path="/" element={<Carusel />} />
         <Route path="/motor" element={<Motor />} />
