@@ -17,14 +17,14 @@ export const Motormap = () => {
   const motorImages = [mot1, mot3, mot4];
   return (
     <div>
-      <Motorg style={{ margin: "0 70px 60px" }}>
+      <Motorg>
         {campcar.maindata.map((item, index) => (
           <MotorMapD key={item.id}>
             <Link style={{ textDecoration: "none" }} to={`/motor/${item.id}`}>
               <img
                 alt="No Image"
                 src={motorImages[index % 3]}
-                style={{ height: "140px" }}
+                style={{ height: "140px", width: "100%" }}
               />
               <MotorInner>
                 <MotorMapH1>{item.car.name}</MotorMapH1>

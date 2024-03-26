@@ -6,9 +6,24 @@ import { HeaderDiv, MotWrap, MotorDiv, MotorH1, MotorMapH1 } from "../style";
 import Footerr from "../footer/footer";
 import { MotorSide } from "./motorSide";
 import { borderBottom } from "@mui/system";
+import { IconButton } from "@mui/material";
+import { ChevronLeft } from "@mui/icons-material";
+import MenuIcon from "@mui/icons-material/Menu";
+
 // import motorback from "../assets/image 5.png";
 
 export const Motor = () => {
+  const [openDrawer, setOpenDrawer] = useState(true);
+  const [closeDrawer, setCloseDrawer] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpenDrawer(false);
+    setCloseDrawer(true);
+  };
+  const handleDrawerClose = () => {
+    setCloseDrawer(false);
+    setOpenDrawer(true);
+  };
   return (
     <div>
       <MotorDiv>
@@ -21,21 +36,22 @@ export const Motor = () => {
           <MotorSide />
         </MotWrap>
         <MotWrap>
-          <HeaderDiv
-            style={{
-              margin: "60px 70px 60px",
-              borderBottom: "1px solid rgba(55, 55, 55, 0.50)",
-              marginBottom: "15px",
-            }}
-          >
+          <HeaderDiv>
             <MotorMapH1
               style={{ display: "flex", gap: "10px", alignItems: "center" }}
             >
               Item<MotorMapH1 $cost>{campcar.maindata.length}</MotorMapH1>
             </MotorMapH1>
+            <IconButton onClick={handleDrawerOpen}>
+              <MenuIcon />
+            </IconButton>
+            <IconButton onClick={handleDrawerClose}>
+              <MenuIcon />
+            </IconButton>
           </HeaderDiv>
 
-          <Motormap />
+          {openDrawer && <Motormap />}
+          {closeDrawer && <Footerr />}
         </MotWrap>
       </div>
 

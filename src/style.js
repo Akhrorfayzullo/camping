@@ -195,12 +195,12 @@ export const MotorH1 = styled.h1`
 export const MotorMapD = styled.div`
   width: 223px;
   height: 307px;
+
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 
-  /* border: 1px solid red; */
-  padding: 15px 0px;
+  padding: 15px 10px;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -252,7 +252,14 @@ export const Motorg = styled.div`
   gap: 20px;
 `;
 export const HeaderDiv = styled.div`
-  /* border: 1px solid black; */
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin: 60px 70px; */
+  /* border-bottom: 1px solid rgba(55, 55, 55, 0.50); */
+  /* margin-bottom: 15px; */
+  padding: 0 50px;
   margin: 60px 0 37px 0;
   /* border-bottom: 1px solid black; */
 `;
