@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { useLocation } from "react-router-dom";
 import { Carusel } from "./carusel/carusel";
 import { Multicar } from "./carusel/multicar";
 import Popupp from "./components/popup/popup";
@@ -13,21 +14,14 @@ import { Caravan } from "./caravan/motor";
 import { CampPlace } from "./campPlace/campPlace";
 import { CampPlaceInfo } from "./campPlace/campPlaceInfo";
 import ResponsiveDrawer from "./components/popup/drawer";
+import SignIn from "./signIn/sigin";
+import { RouterComponent } from "./routerCom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Navbar />
-      {/* <ResponsiveDrawer/> */}
-      <Routes>
-        <Route path="/" element={<Carusel />} />
-        <Route path="/motor" element={<Motor />} />
-        <Route path="/campPlaces/:id" element={<CampPlaceInfo />} />
-        <Route path="/motor/:id" element={<Motorinfo />} />
-        <Route path="/caravan" element={<Caravan />} />
-        <Route path="/campPlaces" element={<CampPlace />} />
-      </Routes>
+      <RouterComponent />
     </BrowserRouter>
     {/* <Carusel /> */}
     {/* <Multicar /> */}

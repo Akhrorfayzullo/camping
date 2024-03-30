@@ -83,8 +83,9 @@ export const Navbar = () => {
               <MenuIcon />
             </IconButton>
           )}
-
-          <Navh1>Camper</Navh1>
+          <Link to="/signin" style={{ textDecoration: "none" }}>
+            <Navh1>Camper</Navh1>
+          </Link>
         </Innerdiv>
 
         {/* this one is for full screeen */}

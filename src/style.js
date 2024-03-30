@@ -658,8 +658,8 @@ export const Fonth1 = styled.h1`
 `;
 export const Flast = styled.div`
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: ${(props) => (props.$sign ? "space-between" : "none")};
+  align-items: ${(props) => (props.$sign ? "center" : "none")};
 `;
 export const Desck = styled.h1`
   color: #373737;
@@ -669,4 +669,13 @@ export const Desck = styled.h1`
   font-weight: 400;
   line-height: normal;
   margin-top: 15px;
+`;
+export const Signh1 = styled.h1`
+  color: rgba(55, 55, 55, 0.8);
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 5px 0 5px 11px;
 `;
