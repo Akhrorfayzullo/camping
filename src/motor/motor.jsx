@@ -9,6 +9,7 @@ import { borderBottom } from "@mui/system";
 import { IconButton } from "@mui/material";
 import { ChevronLeft } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Seconndview } from "./seconndview";
 
 // import motorback from "../assets/image 5.png";
 
@@ -51,7 +52,7 @@ export const Motor = () => {
           </HeaderDiv>
 
           {openDrawer && <Motormap />}
-          {closeDrawer && <Footerr />}
+          {closeDrawer && <Seconndview />}
         </MotWrap>
       </div>
 

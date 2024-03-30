@@ -241,7 +241,7 @@ export const MotorInner = styled.div`
   padding: 0 10px;
   /* gap: 20px; */
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.$m2 ? "row" : "column")};
   justify-content: space-evenly;
 `;
 export const Motorg = styled.div`
@@ -678,4 +678,23 @@ export const Signh1 = styled.h1`
   font-weight: 600;
   line-height: normal;
   margin: 5px 0 5px 11px;
+`;
+export const Motor2div = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-right: 30px;
+  /* border: 1px solid red; */
+`;
+export const Motor2MapD = styled.div`
+  min-width: 100%;
+
+  /* margin: 0 100px 0 0; */
+  height: 180px;
+  /* border: 1px solid black; */
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  /* flex-direction: column; */
 `;
