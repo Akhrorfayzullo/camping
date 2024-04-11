@@ -692,9 +692,10 @@ export const Motor2MapD = styled.div`
   /* margin: 0 100px 0 0; */
   height: 180px;
   /* border: 1px solid black; */
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   display: flex;
   border-radius: 20px;
   align-items: center;
+
   /* flex-direction: column; */
 `;
